@@ -2,17 +2,12 @@ package br.com.escola.controllers;
 
 import javax.faces.bean.ManagedBean;
 
+import lombok.Data;
+
 @ManagedBean(name="loginMB")
+@Data
 public class LoginMB {
 
-	private String user = "test";
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
+	private String user = "Teste!";
 	
 }
