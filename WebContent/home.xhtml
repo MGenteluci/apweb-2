@@ -6,18 +6,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Centro de Ensino - Autenticação</title>
+<title>Centro de Ensino - Home</title>
 </head>
 <body>
-	<h:messages></h:messages>
 	<h:form>
-		<h:outputLabel for="username" value="Usuário" />
-		<h:inputText id="username" value="#{loginMB.username}" required="true" />
-
-		<h:outputLabel for="password" value="Senha" />
-		<h:inputSecret id="password" value="#{loginMB.password}" required="true" />
-		
-		<h:commandButton id="signIn" action="#{loginMB.signIn}" value="Entrar" />
+		<h:outputText value="Seja bem vindo(a) #{loginMB.username}"></h:outputText>
 	</h:form>
 </body>
 </html>
