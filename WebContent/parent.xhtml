@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Responsável</title>
+</head>
+<body>
+	<h:messages />
+	<h:form>
+		<h:outputLabel for="cpf" value="CPF" />
+		<h:inputText id="cpf" value="#{parentMB.parent.cpf}" required="true" />
+
+		<h:outputLabel for="name" value="Nome" />
+		<h:inputText id="name" value="#{parentMB.parent.name}" required="true" />
+		
+		<h:outputLabel for="gender" value="Sexo" />
+		<h:inputText id="gender" value="#{parentMB.parent.gender}" required="true" />
+		
+		<h:outputLabel for="contact" value="Telefone" />
+		<h:inputText id="contact" value="#{parentMB.parent.contact}" required="true" />
+		
+		<h:outputLabel for="address" value="Endereço" />
+		<h:inputText id="address" value="#{parentMB.parent.address}" required="true" />
+
+		<h:outputLabel for="birthDate" value="Data de Nascimento" />
+		<h:inputText id="birthDate" value="#{parentMB.parent.birthDate}" required="true" />
+		
+		<h:commandButton id="create" action="#{parentMB.create}" value="Salvar" />
+		<h:commandButton id="back" action="#{parentMB.findAll}" value="Voltar" immediate="true" />
+	</h:form>
+</body>
+</html>

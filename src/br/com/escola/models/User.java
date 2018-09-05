@@ -11,13 +11,13 @@ public class User {
 
 	@Id
 	private Long id;
-	private String name;
+	private String name = "Matheus";
 	private String surname;
 	private String username;
-	private String password;
+	private String password = "123";
 	
 	public boolean isPasswordCorrect(String password) {
-		if(this.password.equals(password))
+		if(this.password.equals(password)) 
 			return true;
 		
 		return false;
