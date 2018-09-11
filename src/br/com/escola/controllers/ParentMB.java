@@ -1,5 +1,8 @@
 package br.com.escola.controllers;
 
+import static br.com.escola.components.UrlBuilder.REQUEST_PATH_PARENT;
+import static br.com.escola.components.UrlBuilder.REQUEST_PATH_PARENTS;
+
 import javax.faces.bean.ManagedBean;
 
 import br.com.escola.models.Parent;
@@ -21,7 +24,7 @@ public class ParentMB {
 	public String pushParentPage() {
 		//this.parent = new Parent();
 		
-		return "parent.jsf";
+		return REQUEST_PATH_PARENT;
 	}
 	
 	public String create() {
@@ -33,7 +36,7 @@ public class ParentMB {
 	public String findAll() {
 		//List<Parent> parents = this.dao.findAll();
 		
-		return "parents.jsf";
+		return REQUEST_PATH_PARENTS;
 	}
 	
 	public String findByUsername(String username) {

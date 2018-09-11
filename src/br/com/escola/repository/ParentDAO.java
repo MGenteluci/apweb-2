@@ -29,8 +29,4 @@ public class ParentDAO {
 		return parents;
 	}
 	
-	public Parent findByUsername(String username) {
-		return this.manager.find(Parent.class, username);
-	}
-	
 }

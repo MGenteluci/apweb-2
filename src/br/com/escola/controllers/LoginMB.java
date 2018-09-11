@@ -1,11 +1,15 @@
 package br.com.escola.controllers;
 
+import static br.com.escola.components.UrlBuilder.REQUEST_PATH_HOME;
+import static br.com.escola.components.UrlBuilder.REQUEST_PATH_INDEX;
 import static javax.faces.application.FacesMessage.SEVERITY_ERROR;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
+import org.apache.commons.lang3.ObjectUtils;
 
 import br.com.escola.models.User;
 import br.com.escola.repository.UserDAO;
@@ -32,22 +36,23 @@ public class LoginMB {
 	
 	public String signIn() {
 		UserDAO userDAO = new UserDAO();
+		user = userDAO.findByUsername(username);
 		
-		/*if(userDAO.findOne(username).equals(null)) {
+		if(!ObjectUtils.allNotNull(user)) {
 			FacesMessage message = new FacesMessage(SEVERITY_ERROR, "Usuário ou senha inválidos", null);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			
-			return "index.jsf";
-		}*/
-		
-		if(!user.isPasswordCorrect(password)) {
-			FacesMessage message = new FacesMessage(SEVERITY_ERROR, "Usuário ou senha inválidos", null);
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			
-			return "index.jsf";
+			return REQUEST_PATH_INDEX;
 		}
 		
-		return "home.jsf";
+		if(user.isPasswordIncorrect(password)) {
+			FacesMessage message = new FacesMessage(SEVERITY_ERROR, "Usuário ou senha inválidos", null);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+			return REQUEST_PATH_INDEX;
+		}
+		
+		return REQUEST_PATH_HOME;
 	}
 	
 }
