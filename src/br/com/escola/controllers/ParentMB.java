@@ -23,7 +23,6 @@ public class ParentMB {
 	
 	public String pushParentPage() {
 		//this.parent = new Parent();
-		
 		return REQUEST_PATH_PARENT;
 	}
 	
@@ -37,16 +36,6 @@ public class ParentMB {
 		//List<Parent> parents = this.dao.findAll();
 		
 		return REQUEST_PATH_PARENTS;
-	}
-	
-	public String findByUsername(String username) {
-		
-		return "";
-	}
-	
-	public String remove() {
-		
-		return "";
 	}
 	
 }

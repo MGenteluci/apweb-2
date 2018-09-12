@@ -1,7 +1,5 @@
 package br.com.escola.repository;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 
 import br.com.escola.conf.JPAUtil;
@@ -14,13 +12,6 @@ public class UserDAO {
 	public UserDAO() {
 		super();
 		this.manager = JPAUtil.getEntityManager();
-	}
-
-	public List<User> findAll() {
-		String jpql = "FROM User";
-		
-		return this.manager.createQuery(jpql, User.class)
-				.getResultList();
 	}
 	
 	public User findByUsername(String username) {

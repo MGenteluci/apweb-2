@@ -12,7 +12,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang3.ObjectUtils;
 
-import br.com.escola.components.Message;
 import br.com.escola.models.User;
 import br.com.escola.repository.UserDAO;
 import lombok.Data;
