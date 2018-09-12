@@ -1,5 +1,6 @@
 package br.com.escola.controllers;
 
+import static br.com.escola.components.Message.UNAUTHORIZED_ACCESS;
 import static br.com.escola.components.UrlBuilder.REQUEST_PATH_HOME;
 import static br.com.escola.components.UrlBuilder.REQUEST_PATH_INDEX;
 import static javax.faces.application.FacesMessage.SEVERITY_ERROR;
@@ -11,6 +12,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang3.ObjectUtils;
 
+import br.com.escola.components.Message;
 import br.com.escola.models.User;
 import br.com.escola.repository.UserDAO;
 import lombok.Data;
@@ -39,14 +41,14 @@ public class LoginMB {
 		user = userDAO.findByUsername(username);
 		
 		if(!ObjectUtils.allNotNull(user)) {
-			FacesMessage message = new FacesMessage(SEVERITY_ERROR, "Usuário ou senha inválidos", null);
+			FacesMessage message = new FacesMessage(SEVERITY_ERROR, UNAUTHORIZED_ACCESS, null);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			
 			return REQUEST_PATH_INDEX;
 		}
 		
 		if(user.isPasswordIncorrect(password)) {
-			FacesMessage message = new FacesMessage(SEVERITY_ERROR, "Usuário ou senha inválidos", null);
+			FacesMessage message = new FacesMessage(SEVERITY_ERROR, UNAUTHORIZED_ACCESS, null);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			
 			return REQUEST_PATH_INDEX;
