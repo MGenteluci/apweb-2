@@ -1,10 +1,14 @@
 package br.com.escola.controllers;
 
+import static br.com.escola.components.UrlBuilder.FACES_REDIRECT;
 import static br.com.escola.components.UrlBuilder.REQUEST_PATH_PARENT;
 import static br.com.escola.components.UrlBuilder.REQUEST_PATH_PARENTS;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
+import br.com.escola.components.UrlBuilder;
 import br.com.escola.models.Parent;
 import br.com.escola.repository.ParentDAO;
 import lombok.Data;
@@ -15,14 +19,27 @@ public class ParentMB {
 
 	private ParentDAO dao = new ParentDAO();
 	private Parent parent = new Parent();
+	private List<Parent> parents = null;
 	
 	/*
 	 * Methods |
 	 * 		   v
 	 */
 	
+	public List<Parent> getParents(){
+		if(this.parents == null)
+			this.parents = this.dao.findAll();
+		
+		return parents;
+	}
+	
 	public String pushParentPage() {
-		//this.parent = new Parent();
+		return REQUEST_PATH_PARENT;
+	}
+	
+	public String pushUpdateParent(Long id) {
+		this.parent = this.dao.findById(id);
+		
 		return REQUEST_PATH_PARENT;
 	}
 	
@@ -33,9 +50,13 @@ public class ParentMB {
 	}
 	
 	public String findAll() {
-		//List<Parent> parents = this.dao.findAll();
-		
-		return REQUEST_PATH_PARENTS;
+		return REQUEST_PATH_PARENTS + FACES_REDIRECT;
+	}
+	
+	public String remove(Long id) {
+		Parent parent = this.dao.findById(id);
+		this.dao.remove(parent);
+		return findAll();
 	}
 	
 }

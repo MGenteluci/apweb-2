@@ -10,27 +10,46 @@
 </head>
 <body>
 	<h:messages />
-	<h:form>
-		<h:outputLabel for="cpf" value="CPF" />
-		<h:inputText id="cpf" value="#{parentMB.parent.cpf}" required="true" />
+	<h:form id="form" prependId="false">
+		<h:inputHidden id="id" value="#{parentMB.parent.id}" />
 
-		<h:outputLabel for="name" value="Nome" />
-		<h:inputText id="name" value="#{parentMB.parent.name}" required="true" />
-		
-		<h:outputLabel for="gender" value="Sexo" />
-		<h:inputText id="gender" value="#{parentMB.parent.gender}" required="true" />
-		
-		<h:outputLabel for="contact" value="Telefone" />
-		<h:inputText id="contact" value="#{parentMB.parent.contact}" required="true" />
-		
-		<h:outputLabel for="address" value="Endereço" />
-		<h:inputText id="address" value="#{parentMB.parent.address}" required="true" />
+		<h:panelGrid columns="2">
+			<h:outputLabel for="cpf" value="CPF: " />
+			<h:inputText id="cpf" value="#{parentMB.parent.cpf}"
+				required="true" size="15" maxlength="11"></h:inputText>
 
-		<h:outputLabel for="birthDate" value="Data de Nascimento" />
-		<h:inputText id="birthDate" value="#{parentMB.parent.birthDate}" required="true" />
-		
-		<h:commandButton id="create" action="#{parentMB.create}" value="Salvar" />
-		<h:commandButton id="back" action="#{parentMB.findAll}" value="Voltar" immediate="true" />
+			<h:outputLabel for="name" value="Nome: " />
+			<h:inputText id="name" value="#{parentMB.parent.name}"
+				required="true" size="40" maxlength="120"></h:inputText>
+
+			<h:outputLabel for="gender" value="Sexo: " />
+			<h:inputText id="gender" value="#{parentMB.parent.gender}"
+				required="true" size="10" maxlength="10">
+			</h:inputText>
+
+			<h:outputLabel for="contact" value="Contato: " />
+			<h:inputText id="contact" value="#{parentMB.parent.contact}"
+				required="true" size="10" maxlength="10">
+			</h:inputText>
+
+			<h:outputLabel for="address" value="Saldo de Estoque: " />
+			<h:inputText id="address" value="#{parentMB.parent.address}"
+				required="true" size="10" maxlength="10">
+			</h:inputText>
+			
+			<h:outputLabel for="birthDate" value="Data de Nascimento: " />
+			<h:inputText id="birthDate" value="#{parentMB.parent.birthDate}"
+				required="true" size="10" maxlength="10">
+			</h:inputText>
+
+			<h:outputText value="" />
+			<h:panelGroup>
+				<h:commandButton id="salvar" action="#{parentMB.create}"
+					value="Salvar"></h:commandButton>
+				<h:commandButton id="cancelar" action="#{parentMB.findAll}"
+					value="Voltar" immediate="true"></h:commandButton>
+			</h:panelGroup>
+		</h:panelGrid>
 	</h:form>
 </body>
 </html>

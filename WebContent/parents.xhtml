@@ -11,7 +11,53 @@
 <body>
 	<h:messages />
 	<h:form>
-		<h:commandLink action="#{parentMB.pushParentPage}" value="Cadastrar Responsável" />
+		<h:commandLink action="#{parentMB.pushParentPage}" value="Cadastrar Responsável" /> <br/>
+		
+		<h:outputText value="Nenhum Responsável foi encontrado!" rendered="#{empty parentMB.parents}"/>
+		
+		<h:dataTable id="tabela" value="#{parentMB.parents}" rendered="#{not empty parentMB.parents}"
+			var="parent" border="1" cellspacing="0" cellpadding="3" >
+			
+			<f:facet name="header">Lista de Responsáveis</f:facet>
+			
+			<h:column>
+				<f:facet name="header">Opções</f:facet>
+				<h:commandLink action="#{parentMB.pushUpdateParent(parent.id)}" value="Alterar" /> -
+				<h:commandLink action="#{parentMB.remove(parent.id)}" value="Excluir" />
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+				<h:outputText value="#{parent.cpf}"></h:outputText>
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{parent.name}"></h:outputText>
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Gênero</f:facet>
+				<h:outputText value="#{parent.gender}"></h:outputText>
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Contato</f:facet>
+				<h:outputText value="#{parent.contact}"></h:outputText>
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Endereço</f:facet>
+				<h:outputText value="#{parent.address}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Data de Nascimento</f:facet>
+				<h:outputText value="#{parent.birthDate}"></h:outputText>
+			</h:column>
+		
+		</h:dataTable>
+		
 	</h:form>
 </body>
 </html>

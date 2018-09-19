@@ -58,14 +58,14 @@ public abstract class DAOImpl<T> implements DAO<T> {
 	@Override
 	public T create(T object) {
 		
-		boolean transacaoAtiva = this.getEntityManager().getTransaction().isActive();
+		boolean isTransactionActive = this.getEntityManager().getTransaction().isActive();
 
-		if (!transacaoAtiva)
+		if (!isTransactionActive)
 			this.openTransaction();
 
 		object = this.getEntityManager().merge(object);
 
-		if (!transacaoAtiva)
+		if (!isTransactionActive)
 			this.commitTransaction();
 
 		return object;
@@ -73,7 +73,15 @@ public abstract class DAOImpl<T> implements DAO<T> {
 
 	@Override
 	public void remove(T object) {
-		
+		boolean isTransactionActive = this.getEntityManager().getTransaction().isActive();
+
+		if (!isTransactionActive)
+			this.openTransaction();
+
+		this.getEntityManager().remove(object);
+
+		if (!isTransactionActive)
+			this.commitTransaction();
 	}
 
 	@Override
