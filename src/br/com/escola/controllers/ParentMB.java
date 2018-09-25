@@ -36,7 +36,7 @@ public class ParentMB {
 	public String pushUpdateParent(Long id) {
 		this.parent = this.dao.findById(id);
 		
-		return REQUEST_PATH_PARENT;
+		return pushParentPage();
 	}
 	
 	public String create() {
