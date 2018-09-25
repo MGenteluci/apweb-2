@@ -47,7 +47,7 @@ public class StudentMB {
 		return REQUEST_PATH_STUDENT;
 	}
 	
-	public String pushUpdateParentPage(Long id) {
+	public String pushUpdateStudent(Long id) {
 		this.student = this.dao.findById(id);
 		return pushStudentPage();
 	}

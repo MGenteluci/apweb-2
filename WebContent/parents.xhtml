@@ -12,6 +12,7 @@
 	<h:messages />
 	<h:form>
 		<h:commandLink action="#{parentMB.pushParentPage}" value="Cadastrar Responsável" /> <br/>
+		<h:commandLink action="#{loginMB.pushHome}" value="Voltar" /> <br/>
 		
 		<h:outputText value="Nenhum Responsável foi encontrado!" rendered="#{empty parentMB.parents}"/>
 		

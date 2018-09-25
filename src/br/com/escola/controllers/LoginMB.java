@@ -56,4 +56,8 @@ public class LoginMB {
 		return REQUEST_PATH_HOME;
 	}
 	
+	public String pushHome() {
+		return REQUEST_PATH_HOME;
+	}
+	
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Alunos</title>
+</head>
+<body>
+	<h:messages />
+	<h:form>
+		<h:commandLink action="#{studentMB.pushStudentPage}" value="Cadastrar Aluno" /> <br/>
+		<h:commandLink action="#{loginMB.pushHome}" value="Voltar" /> <br/>
+		
+		<h:outputText value="Nenhum Aluno foi encontrado!" rendered="#{empty studentMB.student}"/>
+		
+		<h:dataTable id="tabela" value="#{studentMB.student}" rendered="#{not empty studentMB.students}"
+			var="parent" border="1" cellspacing="0" cellpadding="3" >
+			
+			<f:facet name="header">Lista de Alunos</f:facet>
+			
+			<h:column>
+				<f:facet name="header">Opções</f:facet>
+				<h:commandLink action="#{studentMB.pushUpdateStudent(student.id)}" value="Alterar" /> -
+				<h:commandLink action="#{studentMB.remove(student.id)}" value="Excluir" />
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Matrícula</f:facet>
+				<h:outputText value="#{student.code}"></h:outputText>
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{student.name}"></h:outputText>
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Gênero</f:facet>
+				<h:outputText value="#{student.gender}"></h:outputText>
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Data de Nascimento</f:facet>
+				<h:outputText value="#{student.birthDate}"></h:outputText>
+			</h:column>
+		
+		</h:dataTable>
+		
+	</h:form>
+</body>
+</html>
