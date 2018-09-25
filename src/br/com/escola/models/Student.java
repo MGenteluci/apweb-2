@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
@@ -22,5 +24,9 @@ public class Student {
 	
 	@Column(name="birth_date")
 	private String birthDate;
+	
+	@ManyToOne
+	@JoinColumn(name="id_parent_fk")
+	private Parent parent;
 	
 }
