@@ -1,6 +1,9 @@
-# Aplicações Web II
-> Repositório para projeto de faculdade  
-> Disciplina: Aplicações Web II (6º Semestre)
+# Centro de Ensino
+
+## Finalidade do Projeto
+* Atender ao trabalho requisitado pela graduação de Sistemas de Informação.
+* 6º Semestre
+* Disciplina: Aplicações Web 2
 
 ## Tecnologias Utilizadas
 ```Java```
