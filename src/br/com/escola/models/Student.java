@@ -8,19 +8,17 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
 @Data
-public class Parent {
+@Entity
+public class Student {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	private String cpf;
+	private String code;
 	private String name;
 	private String gender;
-	private String contact;
-	private String address;
 	
 	@Column(name="birth_date")
 	private String birthDate;

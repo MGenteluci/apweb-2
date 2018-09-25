@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
-import br.com.escola.components.UrlBuilder;
 import br.com.escola.models.Parent;
 import br.com.escola.repository.ParentDAO;
 import lombok.Data;
@@ -27,10 +26,7 @@ public class ParentMB {
 	 */
 	
 	public List<Parent> getParents(){
-		if(this.parents == null)
-			this.parents = this.dao.findAll();
-		
-		return parents;
+		return this.parents == null ? this.dao.findAll() : this.parents;
 	}
 	
 	public String pushParentPage() {
