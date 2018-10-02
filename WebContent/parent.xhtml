@@ -6,7 +6,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Responsável</title>
+<title>#{msgs.titleParentPage}</title>
 </head>
 <body>
 	<h:messages />
@@ -14,42 +14,42 @@
 		<h:inputHidden id="id" value="#{parentMB.parent.id}" />
 
 		<h:panelGrid columns="2">
-			<h:outputLabel for="cpf" value="CPF: " />
-			<h:inputText id="cpf" value="#{parentMB.parent.cpf}" validatorMessage="CPF deve conter 11 digitos sem pontuação">
+			<h:outputLabel for="cpf" value="#{msgs.cpfLabel}" />
+			<h:inputText id="cpf" value="#{parentMB.parent.cpf}" validatorMessage="#{msgs.cpfValidation}">
 				<f:validateRegex pattern="\d{11}"/>
 			</h:inputText>
 
-			<h:outputLabel for="name" value="Nome: " />
-			<h:inputText id="name" value="#{parentMB.parent.name}" validatorMessage="Nome inválido">
+			<h:outputLabel for="name" value="#{msgs.nameLabel}" />
+			<h:inputText id="name" value="#{parentMB.parent.name}" validatorMessage="#{msgs.nameValidation}">
 				<f:validateRegex pattern="(?i)[a-z ]+" />
 			</h:inputText>
 
-			<h:outputLabel for="gender" value="Sexo: " />
-			<h:inputText id="gender" value="#{parentMB.parent.gender}" validatorMessage="Sexo deve ser Masculino ou Feminino">
+			<h:outputLabel for="gender" value="#{msgs.genderLabel}" />
+			<h:inputText id="gender" value="#{parentMB.parent.gender}" validatorMessage="#{msgs.genderValidation}">
 				<f:validateRegex pattern="(?i)masculino|feminino" />
 			</h:inputText>
 
-			<h:outputLabel for="contact" value="Contato: " />
-			<h:inputText id="contact" value="#{parentMB.parent.contact}" validatorMessage="Contato deve ser um número de 9 dígitos sem pontuação">
+			<h:outputLabel for="contact" value="#{msgs.contactLabel}" />
+			<h:inputText id="contact" value="#{parentMB.parent.contact}" validatorMessage="#{msgs.contactValidation}">
 				<f:validateRegex pattern="\d{9}"/>
 			</h:inputText>
 
-			<h:outputLabel for="address" value="Saldo de Estoque: " />
-			<h:inputText id="address" value="#{parentMB.parent.address}"
-				required="true" size="10" maxlength="10">
+			<h:outputLabel for="address" value="#{msgs.addressLabel}" />
+			<h:inputText id="address" value="#{parentMB.parent.address}" validatorMessage="#{msgs.addressValidation}">
+				<f:validateRegex pattern="(?i)[a-z0-9 ]+" />
 			</h:inputText>
 			
-			<h:outputLabel for="birthDate" value="Data de Nascimento: " />
-			<h:inputText id="birthDate" value="#{parentMB.parent.birthDate}"
-				required="true" size="10" maxlength="10">
+			<h:outputLabel for="birthDate" value="#{msgs.birthDateLabel}" />
+			<h:inputText id="birthDate" value="#{parentMB.parent.birthDate}" validatorMessage="#{msgs.birthDateValidation}">
+				<f:validateRegex pattern="\d{2}/\d{2}/\d{4}" />
 			</h:inputText>
 
 			<h:outputText value="" />
 			<h:panelGroup>
 				<h:commandButton id="salvar" action="#{parentMB.create}"
-					value="Salvar"></h:commandButton>
+					value="#{msgs.save}"></h:commandButton>
 				<h:commandButton id="cancelar" action="#{parentMB.findAll}"
-					value="Voltar" immediate="true"></h:commandButton>
+					value="#{msgs.back}" immediate="true"></h:commandButton>
 			</h:panelGroup>
 		</h:panelGrid>
 	</h:form>

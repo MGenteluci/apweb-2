@@ -6,12 +6,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Centro de Ensino - Home</title>
+<title>#{msgs.titleHomePage}</title>
 </head>
 <body>
 	<h:form>
-		<h:commandLink action="#{parentMB.findAll}" value="Cadastro de Responsáveis" /> <br/>
-		<h:commandLink action="#{studentMB.findAll}" value="Cadastro de Alunos" />
+		<h:commandLink action="#{parentMB.findAll}" value="#{msgs.parentRegisterButton}" /> <br/>
+		<h:commandLink action="#{studentMB.findAll}" value="#{msgs.studentRegisterButton}" />
 	</h:form>
 </body>
 </html>

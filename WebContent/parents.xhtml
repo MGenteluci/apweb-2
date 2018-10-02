@@ -6,54 +6,54 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Responsáveis</title>
+<title>#{msgs.titleParentsPage}</title>
 </head>
 <body>
 	<h:messages />
 	<h:form>
-		<h:commandLink action="#{parentMB.pushParentPage}" value="Cadastrar Responsável" /> <br/>
-		<h:commandLink action="#{loginMB.pushHome}" value="Voltar" /> <br/>
+		<h:commandLink action="#{parentMB.pushParentPage}" value="#{msgs.registerParentButton}" /> <br/>
+		<h:commandLink action="#{loginMB.pushHome}" value="#{msgs.back}" /> <br/>
 		
-		<h:outputText value="Nenhum Responsável foi encontrado!" rendered="#{empty parentMB.parents}"/>
+		<h:outputText value="#{msgs.msgNoParentFound}" rendered="#{empty parentMB.parents}"/>
 		
 		<h:dataTable id="tabela" value="#{parentMB.parents}" rendered="#{not empty parentMB.parents}"
 			var="parent" border="1" cellspacing="0" cellpadding="3" >
 			
-			<f:facet name="header">Lista de Responsáveis</f:facet>
+			<f:facet name="header">#{msgs.parentList}</f:facet>
 			
 			<h:column>
-				<f:facet name="header">Opções</f:facet>
-				<h:commandLink action="#{parentMB.pushUpdateParent(parent.id)}" value="Alterar" /> -
-				<h:commandLink action="#{parentMB.remove(parent.id)}" value="Excluir" />
+				<f:facet name="header">#{msgs.optionsHeader}</f:facet>
+				<h:commandLink action="#{parentMB.pushUpdateParent(parent.id)}" value="#{msgs.update}" /> -
+				<h:commandLink action="#{parentMB.remove(parent.id)}" value="#{msgs.remove}" />
 			</h:column>
 		
 			<h:column>
-				<f:facet name="header">CPF</f:facet>
+				<f:facet name="header">#{msgs.cpfHeader}</f:facet>
 				<h:outputText value="#{parent.cpf}"></h:outputText>
 			</h:column>
 		
 			<h:column>
-				<f:facet name="header">Nome</f:facet>
+				<f:facet name="header">#{msgs.nameHeader}</f:facet>
 				<h:outputText value="#{parent.name}"></h:outputText>
 			</h:column>
 		
 			<h:column>
-				<f:facet name="header">Gênero</f:facet>
+				<f:facet name="header">#{msgs.genderHeader}</f:facet>
 				<h:outputText value="#{parent.gender}"></h:outputText>
 			</h:column>
 		
 			<h:column>
-				<f:facet name="header">Contato</f:facet>
+				<f:facet name="header">#{msgs.contactHeader}</f:facet>
 				<h:outputText value="#{parent.contact}"></h:outputText>
 			</h:column>
 		
 			<h:column>
-				<f:facet name="header">Endereço</f:facet>
+				<f:facet name="header">#{msgs.addressHeader}</f:facet>
 				<h:outputText value="#{parent.address}"></h:outputText>
 			</h:column>
 			
 			<h:column>
-				<f:facet name="header">Data de Nascimento</f:facet>
+				<f:facet name="header">#{msgs.birthDateHeader}</f:facet>
 				<h:outputText value="#{parent.birthDate}"></h:outputText>
 			</h:column>
 		

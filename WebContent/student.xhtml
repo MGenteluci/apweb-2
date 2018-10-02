@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>#{msgs.titleStudentPage}</title>
+</head>
+<body>
+	<h:messages />
+	<h:form id="form" prependId="false">
+		<h:inputHidden id="id" value="#{studentMB.student.id}" />
+
+		<h:panelGrid columns="2">
+			<h:outputLabel for="code" value="#{msgs.studentCodeLabel}" />
+			<h:inputText id="code" value="#{studentMB.student.code}" validatorMessage="#{msgs.studentCodeValidation}">
+				<f:validateRegex pattern="\d{6}"/>
+			</h:inputText>
+
+			<h:outputLabel for="name" value="#{msgs.nameLabel}" />
+			<h:inputText id="name" value="#{studentMB.student.name}" validatorMessage="#{msgs.nameValidation}">
+				<f:validateRegex pattern="(?i)[a-z ]+" />
+			</h:inputText>
+
+			<h:outputLabel for="gender" value="#{msgs.genderLabel}" />
+			<h:inputText id="gender" value="#{studentMB.student.gender}" validatorMessage="#{msgs.genderValidation}">
+				<f:validateRegex pattern="(?i)masculino|feminino" />
+			</h:inputText>
+
+			<h:outputLabel for="birthDate" value="#{msgs.birthDateLabel}" />
+			<h:inputText id="birthDate" value="#{studentMB.student.birthDate}" validatorMessage="#{msgs.birthDateValidation}">
+				<f:validateRegex pattern="\d{2}/\d{2}/\d{4}" />
+			</h:inputText>
+
+			<h:outputText value="" />
+			<h:panelGroup>
+				<h:commandButton id="salvar" action="#{studentMB.create}"
+					value="#{msgs.save}"></h:commandButton>
+				<h:commandButton id="cancelar" action="#{studentMB.findAll}"
+					value="#{msgs.back}" immediate="true"></h:commandButton>
+			</h:panelGroup>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>
