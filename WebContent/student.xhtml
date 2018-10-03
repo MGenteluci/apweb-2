@@ -33,6 +33,12 @@
 			<h:inputText id="birthDate" value="#{studentMB.student.birthDate}" validatorMessage="#{msgs.birthDateValidation}">
 				<f:validateRegex pattern="\d{2}/\d{2}/\d{4}" />
 			</h:inputText>
+			
+			<h:outputLabel for="parent" value="#{msgs.parentLabel}" />
+			<h:selectOneMenu id="parent" required="true" requiredMessage="#{msgs.parentValidation}">
+			 	<f:selectItem itemValue="" itemLabel="#{msgs.parentValidation}" />
+				<f:selectItems value="#{parentMB.parents}" var="parent" itemValue="#{parent}" itemLabel="#{parent.name}"/>
+			</h:selectOneMenu>
 
 			<h:outputText value="" />
 			<h:panelGroup>

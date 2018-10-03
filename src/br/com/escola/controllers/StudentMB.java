@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
+import br.com.escola.models.Parent;
 import br.com.escola.models.Student;
 import br.com.escola.repository.StudentDAO;
 import lombok.Data;
