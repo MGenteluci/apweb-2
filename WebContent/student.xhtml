@@ -10,45 +10,45 @@
 <title>#{msgs.titleStudentPage}</title>
 </h:head>
 <h:body>
-	<h:messages />
+	<p:messages />
 	<h:form id="form" prependId="false">
 		<h:inputHidden id="id" value="#{studentMB.student.id}" />
 
-		<h:panelGrid columns="2">
+		<p:panelGrid columns="2">
 			<h:outputLabel for="code" value="#{msgs.studentCodeLabel}" />
-			<h:inputText id="code" value="#{studentMB.student.code}" validatorMessage="#{msgs.studentCodeValidation}">
+			<p:inputText id="code" value="#{studentMB.student.code}" validatorMessage="#{msgs.studentCodeValidation}">
 				<f:validateRegex pattern="\d{6}"/>
-			</h:inputText>
+			</p:inputText>
 
 			<h:outputLabel for="name" value="#{msgs.nameLabel}" />
-			<h:inputText id="name" value="#{studentMB.student.name}" validatorMessage="#{msgs.nameValidation}">
+			<p:inputText id="name" value="#{studentMB.student.name}" validatorMessage="#{msgs.nameValidation}">
 				<f:validateRegex pattern="(?i)[a-z ]+" />
-			</h:inputText>
+			</p:inputText>
 
 			<h:outputLabel for="gender" value="#{msgs.genderLabel}" />
-			<h:inputText id="gender" value="#{studentMB.student.gender}" validatorMessage="#{msgs.genderValidation}">
+			<p:inputText id="gender" value="#{studentMB.student.gender}" validatorMessage="#{msgs.genderValidation}">
 				<f:validateRegex pattern="(?i)masculino|feminino" />
-			</h:inputText>
+			</p:inputText>
 
 			<h:outputLabel for="birthDate" value="#{msgs.birthDateLabel}" />
-			<h:inputText id="birthDate" value="#{studentMB.student.birthDate}" validatorMessage="#{msgs.birthDateValidation}">
+			<p:inputText id="birthDate" value="#{studentMB.student.birthDate}" validatorMessage="#{msgs.birthDateValidation}">
 				<f:validateRegex pattern="\d{2}/\d{2}/\d{4}" />
-			</h:inputText>
+			</p:inputText>
 			
 			<h:outputLabel for="parent" value="#{msgs.parentLabel}" />
-			<h:selectOneMenu id="parent" required="true" requiredMessage="#{msgs.parentValidation}">
+			<p:selectOneMenu id="parent" required="true" requiredMessage="#{msgs.parentValidation}">
 			 	<f:selectItem itemValue="" itemLabel="#{msgs.parentValidation}" />
 				<f:selectItems value="#{parentMB.parents}" var="parent" itemValue="#{parent}" itemLabel="#{parent.name}"/>
-			</h:selectOneMenu>
+			</p:selectOneMenu>
 
 			<h:outputText value="" />
 			<h:panelGroup>
-				<h:commandButton id="salvar" action="#{studentMB.create}"
-					value="#{msgs.save}"></h:commandButton>
-				<h:commandButton id="cancelar" action="#{studentMB.findAll}"
-					value="#{msgs.back}" immediate="true"></h:commandButton>
+				<p:commandButton id="salvar" action="#{studentMB.create}"
+					value="#{msgs.save}"></p:commandButton>
+				<p:commandButton id="cancelar" action="#{studentMB.findAll}"
+					value="#{msgs.back}" immediate="true"></p:commandButton>
 			</h:panelGroup>
-		</h:panelGrid>
+		</p:panelGrid>
 	</h:form>
 </h:body>
 </html>

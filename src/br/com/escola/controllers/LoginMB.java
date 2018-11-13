@@ -36,25 +36,24 @@ public class LoginMB {
 	 */
 	
 	public String signIn() {
+		UserDAO userDAO = new UserDAO();
+		user = userDAO.findByUsername(username);
+		
+		if(!ObjectUtils.allNotNull(user)) {
+			FacesMessage message = new FacesMessage(SEVERITY_ERROR, UNAUTHORIZED_ACCESS, null);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+			return REQUEST_PATH_INDEX;
+		}
+		
+		if(user.isPasswordIncorrect(password)) {
+			FacesMessage message = new FacesMessage(SEVERITY_ERROR, UNAUTHORIZED_ACCESS, null);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+			return REQUEST_PATH_INDEX;
+		}
+		
 		return REQUEST_PATH_HOME;
-//		UserDAO userDAO = new UserDAO();
-//		user = userDAO.findByUsername(username);
-//		
-//		if(!ObjectUtils.allNotNull(user)) {
-//			FacesMessage message = new FacesMessage(SEVERITY_ERROR, UNAUTHORIZED_ACCESS, null);
-//			FacesContext.getCurrentInstance().addMessage(null, message);
-//			
-//			return REQUEST_PATH_INDEX;
-//		}
-//		
-//		if(user.isPasswordIncorrect(password)) {
-//			FacesMessage message = new FacesMessage(SEVERITY_ERROR, UNAUTHORIZED_ACCESS, null);
-//			FacesContext.getCurrentInstance().addMessage(null, message);
-//			
-//			return REQUEST_PATH_INDEX;
-//		}
-//		
-//		return REQUEST_PATH_HOME;
 	}
 	
 	public String pushHome() {

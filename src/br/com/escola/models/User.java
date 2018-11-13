@@ -22,10 +22,7 @@ public class User {
 	private String password;
 	
 	public boolean isPasswordIncorrect(String password) {
-		if(this.password.equals(password)) 
-			return false;
-		
-		return true;
+		return this.password.equals(password);
 	}
 	
 }

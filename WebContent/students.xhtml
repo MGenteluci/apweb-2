@@ -10,45 +10,45 @@
 <title>#{msgs.titleStudentsPage}</title>
 </h:head>
 <h:body>
-	<h:messages />
+	<p:messages />
 	<h:form>
-		<h:commandLink action="#{studentMB.pushStudentPage}" value="#{msgs.registerStudentButton}" /> <br/>
-		<h:commandLink action="#{loginMB.pushHome}" value="#{msgs.back}" /> <br/>
+		<h:commandButton action="#{studentMB.pushStudentPage}" value="#{msgs.registerStudentButton}" /> <br/>
+		<h:commandButton action="#{loginMB.pushHome}" value="#{msgs.back}" /> <br/>
 		
 		<h:outputText value="#{msgs.msgNoStudentFound}" rendered="#{empty studentMB.students}"/>
 		
-		<h:dataTable id="tabela" value="#{studentMB.students}" rendered="#{not empty studentMB.students}"
+		<p:dataTable id="tabela" value="#{studentMB.students}" rendered="#{not empty studentMB.students}"
 			var="student" border="1" cellspacing="0" cellpadding="3" >
 			
 			<f:facet name="header">#{msgs.studentList}</f:facet>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.optionsHeader}</f:facet>
 				<h:commandLink action="#{studentMB.pushUpdateStudent(student.id)}" value="#{msgs.update}" /> -
 				<h:commandLink action="#{studentMB.remove(student.id)}" value="#{msgs.remove}" />
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.studentCodeHeader}</f:facet>
 				<h:outputText value="#{student.code}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.nameHeader}</f:facet>
 				<h:outputText value="#{student.name}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.genderHeader}</f:facet>
 				<h:outputText value="#{student.gender}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.birthDateHeader}</f:facet>
 				<h:outputText value="#{student.birthDate}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-		</h:dataTable>
+		</p:dataTable>
 		
 	</h:form>
 </h:body>

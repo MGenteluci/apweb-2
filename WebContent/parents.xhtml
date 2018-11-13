@@ -10,55 +10,55 @@
 <title>#{msgs.titleParentsPage}</title>
 </h:head>
 <h:body>
-	<h:messages />
+	<p:messages />
 	<h:form>
-		<h:commandLink action="#{parentMB.pushParentPage}" value="#{msgs.registerParentButton}" /> <br/>
-		<h:commandLink action="#{loginMB.pushHome}" value="#{msgs.back}" /> <br/>
+		<p:commandButton action="#{parentMB.pushParentPage}" value="#{msgs.registerParentButton}" /> <br/>
+		<p:commandButton action="#{loginMB.pushHome}" value="#{msgs.back}" /> <br/>
 		
 		<h:outputText value="#{msgs.msgNoParentFound}" rendered="#{empty parentMB.parents}"/>
 		
-		<h:dataTable id="tabela" value="#{parentMB.parents}" rendered="#{not empty parentMB.parents}"
+		<p:dataTable id="tabela" value="#{parentMB.parents}" rendered="#{not empty parentMB.parents}"
 			var="parent" border="1" cellspacing="0" cellpadding="3" >
 			
 			<f:facet name="header">#{msgs.parentList}</f:facet>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.optionsHeader}</f:facet>
 				<h:commandLink action="#{parentMB.pushUpdateParent(parent.id)}" value="#{msgs.update}" /> -
 				<h:commandLink action="#{parentMB.remove(parent.id)}" value="#{msgs.remove}" />
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.cpfHeader}</f:facet>
 				<h:outputText value="#{parent.cpf}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.nameHeader}</f:facet>
 				<h:outputText value="#{parent.name}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.genderHeader}</f:facet>
 				<h:outputText value="#{parent.gender}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.contactHeader}</f:facet>
 				<h:outputText value="#{parent.contact}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.addressHeader}</f:facet>
 				<h:outputText value="#{parent.address}"></h:outputText>
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">#{msgs.birthDateHeader}</f:facet>
 				<h:outputText value="#{parent.birthDate}"></h:outputText>
-			</h:column>
+			</p:column>
 		
-		</h:dataTable>
+		</p:dataTable>
 		
 	</h:form>
 </h:body>
