@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>#{msgs.indexPageTitle}</title>
-</head>
-<body>
-	<h:messages />
+</h:head>
+<h:body>
+	<p:messages />
 	<h:form>
-		<h:outputLabel for="username" value="#{msgs.userField}" />
-		<h:inputText id="username" value="#{loginMB.username}" required="true" />
+		<p:outputLabel for="username" value="#{msgs.userField}" />
+		<p:inputText id="username" value="#{loginMB.username}" required="true" />
 
-		<h:outputLabel for="password" value="#{msgs.passwordField}" />
-		<h:inputSecret id="password" value="#{loginMB.password}" required="true" />
+		<p:outputLabel for="password" value="#{msgs.passwordField}" />
+		<p:password id="password" value="#{loginMB.password}" required="true" />
 		
-		<h:commandButton id="signIn" action="#{loginMB.signIn}" value="#{msgs.indexPageAuthButton}" />
+		<p:commandButton id="signIn" action="#{loginMB.signIn}" value="#{msgs.indexPageAuthButton}" />
 	</h:form>
-</body>
+</h:body>
 </html>
